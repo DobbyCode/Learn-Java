@@ -1,17 +1,27 @@
+import java.util.Scanner;
 
-public class LotteryTypeInput {
+public abstract class LotteryTypeInput {
 
-    private int lotteryType;
+    public static void ChooseTypeOfLottery() {
 
+        int lotteryType;
+        Scanner scanner = new Scanner(System.in);
 
-    public  void ChooseTypeOfLottery() {
+        do {
+            System.out.println("Please choose type of lottery!");
+            lotteryType = scanner.nextInt() ;
+        } while(lotteryType != 5);
 
-    lotteryType = 5;
-
-        if (lotteryType == 5) {
-            LotteryDrawing lottery5Draw = new LotteryDrawing();
-            lottery5Draw.lotteryDraw(5, 90);
+        switch (lotteryType) {
+            case 5:
+                Lottery5 lottery5 = new Lottery5();
+                LotteryDrawing.lotteryDraw(lottery5);
+            case 6:
+                break;    
+            case 7:
+                break;
         }
+        scanner.close();
     }
 
 }
